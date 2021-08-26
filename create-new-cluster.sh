@@ -14,4 +14,6 @@
 # a YAML file that can be `kubectl apply`d to the cluster, version that file in this repository, and add
 # the relevant `kubectl apply` command to ./kubectl-apply-all.sh
 
+echo ./configure/ingress-nginx/install.sh >> create-new-cluster.sh
+echo kubectl create secret tls sourcegraph-tls --key .envrc/private.key --cert .envrc/public.pem  >> create-new-cluster.sh
 ./kubectl-apply-all.sh $@

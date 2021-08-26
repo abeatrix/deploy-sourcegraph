@@ -17,10 +17,10 @@ metadata:
 spec:
   # See the customization guide (../../../docs/configure.md) for information
   # about configuring TLS
-  # tls:
-  # - hosts:
-  #   - sourcegraph.example.com
-  #   secretName: sourcegraph-tls
+  tls:
+  - hosts:
+    - cse-k8s.sgdev.org
+    secretName: sourcegraph-tls
   rules:
   - http:
       paths:
@@ -30,4 +30,4 @@ spec:
           servicePort: 30080
     # If you're using TLS/SSL, uncomment the following line and replace 'sourcegraph.example.com' with the real
     # domain that you want to use for your Sourcegraph instance.
-    # host: sourcegraph.example.com
+    host: cse-k8s.sgdev.org
