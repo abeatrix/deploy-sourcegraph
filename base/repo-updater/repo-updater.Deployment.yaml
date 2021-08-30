@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
       - name: repo-updater
-        image: index.docker.io/sourcegraph/repo-updater:3.30.4@sha256:3dfa0608cfd3d20346da92c31a0c4e977fa8f342a723e36ce5f34d342f3112f7
+        image: index.docker.io/sourcegraph/repo-updater:3.31.0@sha256:edd0bfe2c7e14113e8a373e83a5ac9168111f6c85cbc6d743ffb5ef446b52502
         env:
         terminationMessagePolicy: FallbackToLogsOnError
         ports:
@@ -61,7 +61,7 @@ spec:
             cpu: "1"
             memory: 500Mi
       - name: jaeger-agent      
-        image: index.docker.io/sourcegraph/jaeger-agent:3.30.4@sha256:2e493464f1e8da90f2ddf104cf901c9bcc0cb566310235589d9949b343e3bcfe
+        image: index.docker.io/sourcegraph/jaeger-agent:3.31.0@sha256:29813745f9323884bd87476899d9157fca1255c161837a09354710a08b50d145
         env:
           - name: POD_NAME
             valueFrom:
