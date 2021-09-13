@@ -35,7 +35,7 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.name
-        image: index.docker.io/sourcegraph/precise-code-intel-worker:3.31.1@sha256:22335de0400efe5245f525b46c9139e4b5e620fb6b2b19226129a77f484d30e2
+        image: index.docker.io/sourcegraph/precise-code-intel-worker:3.31.2@sha256:b58d954e6e083752df24f66da99a39e0833c2bfd8cde8a06a9379aef1f84cfde
         terminationMessagePolicy: FallbackToLogsOnError
         livenessProbe:
           httpGet:

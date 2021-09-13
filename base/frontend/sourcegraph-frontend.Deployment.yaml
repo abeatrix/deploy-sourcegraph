@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: index.docker.io/sourcegraph/frontend:3.31.1@sha256:465aeae00faa69bfd93a4fb8ed9daec8967fda33cbb2d4ec211b6dd26943335e
+        image: index.docker.io/sourcegraph/frontend:3.31.2@sha256:c90d487dbfe943e25505bfd1100d97a7baf05c4191d4037e78d1c13e9b0632ce
         args:
         - serve
         env:
@@ -106,7 +106,7 @@ spec:
         - mountPath: /mnt/cache
           name: cache-ssd
       - name: jaeger-agent
-        image: index.docker.io/sourcegraph/jaeger-agent:3.31.1@sha256:72d45690310f63f2351f7fa5adce2e28e45400455a681864dd03ec48b90b6779
+        image: index.docker.io/sourcegraph/jaeger-agent:3.31.2@sha256:1ebaa18672037276930e7b743bd30ec930eba3d5b4657ce9e3b529d5d08a03c8
         env:
           - name: POD_NAME
             valueFrom:
