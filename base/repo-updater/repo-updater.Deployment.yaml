@@ -4,6 +4,7 @@ metadata:
   annotations:
     description: Handles repository metadata (not Git data) lookups and updates from
       external code hosts and other similar services.
+    kubectl.kubernetes.io/default-container: repo-updater
   labels:
     deploy: sourcegraph
     sourcegraph-resource-requires: no-cluster-admin
@@ -29,7 +30,7 @@ spec:
     spec:
       containers:
       - name: repo-updater
-        image: index.docker.io/sourcegraph/repo-updater:3.31.2@sha256:a7bde2e5c3bb7a6c3baf5188360e1343b3e8ea1caf73fd4fb241f19ded5d0948
+        image: index.docker.io/sourcegraph/repo-updater:3.32.0@sha256:eda02caf1147f02b49270ca0505d2214be4e615c850993a58d367d3445c565df
         env:
         terminationMessagePolicy: FallbackToLogsOnError
         ports:
@@ -61,7 +62,7 @@ spec:
             cpu: "1"
             memory: 500Mi
       - name: jaeger-agent      
-        image: index.docker.io/sourcegraph/jaeger-agent:3.31.2@sha256:1ebaa18672037276930e7b743bd30ec930eba3d5b4657ce9e3b529d5d08a03c8
+        image: index.docker.io/sourcegraph/jaeger-agent:3.32.0@sha256:8813e619ee645b1124eff4571dc980a37ea7efc19d13f4a4c8b3f70d91ca8454
         env:
           - name: POD_NAME
             valueFrom:
