@@ -55,6 +55,10 @@ spec:
           value: disable
         - name: CODEINTEL_PGUSER
           value: sg
+        - name: GLOBAL_SETTINGS_ALLOW_EDITS
+          value: "true"
+        - name: GLOBAL_SETTINGS_FILE
+          value: /etc/sourcegraph/global-settings.json
         # POD_NAME is used by CACHE_DIR
         - name: POD_NAME
           valueFrom:
@@ -104,6 +108,8 @@ spec:
         volumeMounts:
         - mountPath: /mnt/cache
           name: cache-ssd
+        - mountPath: /etc/sourcegraph
+          name: config-volume
       - name: jaeger-agent
         image: index.docker.io/sourcegraph/jaeger-agent:3.32.0@sha256:8813e619ee645b1124eff4571dc980a37ea7efc19d13f4a4c8b3f70d91ca8454
         env:
@@ -137,3 +143,7 @@ spec:
       volumes:
       - emptyDir: {}
         name: cache-ssd
+      - name: config-volume
+        configMap:
+          name: frontend-config-files
+          defaultMode: 0644

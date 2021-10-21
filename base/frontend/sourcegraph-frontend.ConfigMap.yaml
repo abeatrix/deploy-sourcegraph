@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  annotations:
+    description: Sourcegraph configuration files
+  labels:
+    deploy: sourcegraph
+  name: frontend-config-files
+data:
+  # IMPORTANT: see https://docs.sourcegraph.com/admin/config/advanced_config_file for details on how this works.
+
+  # Global user settings, see: https://docs.sourcegraph.com/admin/config/advanced_config_file#global-settings
+  global-settings.json: |
+    {
+        "experimentalFeatures": {
+        "codeInsights": true
+      },
+      "extensions": {
+        "sourcegraph/code-stats-insights": true,
+        "sourcegraph/search-insights": true,
+      },
+      "notices": [
+        {
+          "dismissible": false,
+          "location": "home",
+          "message": "🐶 This is a test instance deployed with Kubernetes on GKE."
+        },
+        {
+          "dismissible": true,
+          "location": "home",
+          "message": "🚨 [Click here to learn how to get logs for this K8s instance.](https://about.sourcegraph.com/handbook/support/managing-cse-k8s)"
+        }
+      ],
+      "search.repositoryGroups": {
+        "sg": [
+          {
+            "regex": "^github.com/sourcegraph/*"
+          }
+        ]
+      }
+      } 
